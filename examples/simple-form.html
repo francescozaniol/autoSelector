@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+
+    <script src="jquery.js"></script>
+    <script src="../src/autoSelector.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2>Live Example:</h2>
+
+<form id="my-form">
+    <p js="content">Empty input</p>
+    <input type="text" js="field" placeholder="Write something"></input>
+    <button js="btn">Reset</button>
+</form>
+
+<script id="code-used">
+
+var myForm = autoSelector.parse( document.getElementById('my-form') );
+
+myForm.btn.onclick = function(e){
+    myForm.content.innerHTML = 'Empty input';
+    myForm.field.value = '';
+    e.preventDefault();
+};
+
+myForm.$field.keyup(function(){
+    myForm.content.innerHTML = 'You wrote: "'+this.value+'"';
+});
+
+</script>
+
+<hr style="margin:2em 1em;">
+
+<script>
+    var markupUsed = document.getElementById('my-form').outerHTML;
+    var codeUsed = document.getElementById('code-used').innerHTML;
+
+    document.write('<h2>Markup:</h2>');
+    document.write('<pre><code>'+markupUsed.replace(/[<]/g, '&lt;').replace(/[>]/g, '&gt;')+'</code></pre>');
+    document.write('<h2>JS:</h2>');
+    document.write('<pre><code>'+codeUsed+'</code></pre>');
+
+</script>
+
+</body>
+</html>

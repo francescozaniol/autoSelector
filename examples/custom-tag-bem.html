@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+
+    <script src="jquery.js"></script>
+    <script src="../src/autoSelector.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2>Live Example:</h2>
+
+<my-component>
+    <button class="my-component__btn my-component__btn--1" data-js>Btn 1</button>
+    <button class="my-component__btn my-component__btn--2" data-js>Btn 2</button>
+</my-component>
+
+<script id="code-used">
+
+autoSelector.setDefaultConf({
+    'selector': '[data-js]',
+    'prefix': '{{scope-customTagName}}__',
+    'parsed-attribute': 'id/class'
+});
+var myComponent = autoSelector.parse( 'my-component' );
+
+myComponent.$btn.click(function(){
+    console.log('General button');
+});
+myComponent['$btn--1'].click(function(){
+    console.log('Button #1');
+});
+myComponent['btn--2'].onclick = function(){
+    console.log('Button #2');
+};
+
+</script>
+
+<hr style="margin:2em 1em;">
+
+<script>
+    var markupUsed = document.querySelector('my-component').outerHTML;
+    var codeUsed = document.getElementById('code-used').innerHTML;
+
+    document.write('<h2>Markup:</h2>');
+    document.write('<pre><code>'+markupUsed.replace(/[<]/g, '&lt;').replace(/[>]/g, '&gt;')+'</code></pre>');
+    document.write('<h2>JS:</h2>');
+    document.write('<pre><code>'+codeUsed+'</code></pre>');
+
+</script>
+
+</body>
+</html>
