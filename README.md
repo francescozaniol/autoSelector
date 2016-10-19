@@ -63,13 +63,12 @@ Note: there are few **"Wildcard strings"** that can be used:
 
 ##Further notes
 
-- To improve performance, the jQuery wrapper is generated when the collectionped object is used for the first time:
+- To improve performance, the jQuery wrapper is generated when it is used for the first time:
 
 ```javascript
-// Here "myEl.$myBtn" hasn't been used and hasn't been created
+// Here "myEl.$myBtn" hasn't been used and hasn't been initialized
 // ... code ...
 myEl.$myBtn.click(function(){}); // First time use for "myEl.$myBtn", the jQuery wrapper is created on the spot
-// ... code ...
 ```
 
 - A temporary configuration can be used if passed to the main function:
