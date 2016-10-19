@@ -81,7 +81,7 @@ var myEl = autoSelector({ // temporary config, only for one parse
 // From now on the parse configuration is reverted to the default one
 ```
 
-- A string (CSS selector) can be used as a scope instead of a node:
+- A string (CSS selector) can be used as the scope instead of a node:
 
 ```javascript
 var myEl = autoSelector.parse( '#my-el' );
