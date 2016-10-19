@@ -51,7 +51,7 @@ myEl['$my-btn'].click(function(){});
 Note: there are few **"Wildcard strings"** that can be used:
 - ```{{scope-id}}```, ```{{scope-class}}```, ```{{scope-customTagName}}```: these will be replaced by the attributes of the "scope". The "scope" is the node (or nodes) passed to the "parse" function.
 - The above wildcard strings can be combined with "/"; for example: ```{{scope-id/class}}``` or ```{{scope-customTagName/id}}```
-- The ```'parsed-attribute'``` option can accept any dom attribute (such as "id" or "class" or "data-anything"). It can also accept "id/class", this will parse both the id and class of each selected node.
+- The ```'parsed-attribute'``` option can accept any dom attribute (such as ```'id'``` or ```'class'``` or ```'data-anything'```). It can also accept ```'id/class'```, this will parse both the id and class of each selected node.
 
 ##Live examples:
 
