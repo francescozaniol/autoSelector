@@ -28,7 +28,7 @@ autoSelector.setDefaultConf({
     'selector': '.js', // The default selector is '[js]'
     'prefix': '{{scope-id}}__', // This string will be removed from the nodes' names in the collection
     'parsed-attribute': 'class', // Attribute used to extract the nodes' names
-    'attach-jquery': false // Default is true
+    'attach-jquery': true // Default is true
 });
 ```
 
@@ -45,7 +45,7 @@ The above configuration could work well with BEMmed html:
 var myEl = autoSelector.parse( document.getElementById('my-el') );
 
 myEl.myLink.onclick = function(){};
-myEl['my-btn'].click(function(){});
+myEl['$my-btn'].click(function(){});
 ```
 
 Note: there are few **"Wildcard strings"** that can be used:
