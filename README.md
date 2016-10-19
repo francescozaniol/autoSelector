@@ -1,6 +1,6 @@
 ##About
 
-"autoSelector" is a small JS script that returns a map of auto-selected dom nodes. It also auto-attaches a jQuery wrapper.
+"autoSelector" is a small JS script that returns a collection of auto-selected dom nodes. It also auto-attaches a jQuery wrapper.
 
 ##Example
 
@@ -26,7 +26,7 @@ The default configuration looks for the "js" attribute in nodes. This behaviour 
 ```javascript
 autoSelector.setDefaultConf({
     'selector': '.js', // The default selector is '[js]'
-    'prefix': '{{scope-id}}__', // This string will be removed from the nodes' names in the map
+    'prefix': '{{scope-id}}__', // This string will be removed from the nodes' names in the collection
     'parsed-attribute': 'class', // Attribute used to extract the nodes' names
     'attach-jquery': false // Default is true
 });
@@ -63,7 +63,7 @@ Note: there are few **"Wildcard strings"** that can be used:
 
 ##Further notes
 
-- To improve performance, the jQuery wrapper is generated when the mapped object is used for the first time:
+- To improve performance, the jQuery wrapper is generated when the collectionped object is used for the first time:
 
 ```javascript
 // Here "myEl.$myBtn" hasn't been used and hasn't been created
