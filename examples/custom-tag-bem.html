@@ -17,14 +17,14 @@
 <h2>Live Example:</h2>
 
 <my-component>
-    <button class="my-component__btn my-component__btn--1" data-js>Btn 1</button>
-    <button class="my-component__btn my-component__btn--2" data-js>Btn 2</button>
+    <button class="my-component__btn my-component__btn--1">Btn 1</button>
+    <button class="my-component__btn my-component__btn--2">Btn 2</button>
 </my-component>
 
 <script id="code-used">
 
 autoSelector.setDefaultConf({
-    'selector': '[data-js]',
+    'selector': '[class*="{{scope-customTagName}}__"]',
     'prefix': '{{scope-customTagName}}__',
     'parsed-attribute': 'id/class'
 });
