@@ -1,0 +1,2 @@
+tools/gulp/node_modules/*
+dist/autoSelector.js
