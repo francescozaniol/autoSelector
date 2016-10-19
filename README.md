@@ -26,8 +26,8 @@ The default configuration looks for the "js" attribute in nodes. This behaviour 
 ```javascript
 autoSelector.setDefaultConf({
     'selector': '.js', // The default selector is '[js]'
-    'prefix': '{{scope-id}}__', // This string will be removed from the node's name in the map
-    'parsed-attribute': 'class', // This will 
+    'prefix': '{{scope-id}}__', // This string will be removed from the nodes' names in the map
+    'parsed-attribute': 'class', // Attribute used to extract the nodes' names
     'attach-jquery': false // Default is true
 });
 ```
@@ -36,8 +36,8 @@ The above configuration could work well with BEMmed html:
 
 ```html
 <div id="my-el">
-    <a href="#" js="my-el__myLink">My link</a>
-    <button js="my-el__my-btn">My button</button>
+    <a href="#" class="my-el__myLink js">My link</a>
+    <button class="my-el__my-btn js">My button</button>
 </div>
 ```
 
@@ -45,7 +45,7 @@ The above configuration could work well with BEMmed html:
 var myEl = autoSelector.parse( document.getElementById('my-el') );
 
 myEl.myLink.onclick = function(){};
-myEl['my-btn'].click(function(){}); // note: if "-" is used, the notation [...] must be used
+myEl['my-btn'].click(function(){});
 ```
 
 Note: there are few **"Wildcard strings"** that can be used:
@@ -56,7 +56,9 @@ Note: there are few **"Wildcard strings"** that can be used:
 ##Live examples:
 
 [Simple form](https://rawgit.com/francescozaniol/autoSelector/master/examples/simple-form.html)
+
 [Simple BEMmed form](https://rawgit.com/francescozaniol/autoSelector/master/examples/simple-form-bem.html)
+
 [Custom tag + BEM](https://rawgit.com/francescozaniol/autoSelector/master/examples/custom-tag-bem.html)
 
 ##Further notes
@@ -69,6 +71,7 @@ Note: there are few **"Wildcard strings"** that can be used:
 myEl.$myBtn.click(function(){}); // First time use for "myEl.$myBtn", the jQuery wrapper is created on the spot
 // ... code ...
 ```
+
 - A temporary configuration can be used if passed to the main function:
 
 ```javascript
@@ -78,7 +81,7 @@ var myEl = autoSelector({ // temporary config, only for one parse
     .parse( document.getElementById('my-el') );
 // From now on the parse configuration is reverted to the default one
 ```
-```
+
 - A string (CSS selector) can be used as a scope instead of a node:
 
 ```javascript
