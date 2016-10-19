@@ -1,6 +1,6 @@
 ##About
 
-"autoSelector" is a small JS script that returns a collection of auto-selected dom nodes. It also auto-attaches a jQuery wrapper.
+"autoSelector" is a small JS script that returns a collection of auto-selected dom nodes. It also auto-attaches the jQuery wrapper.
 
 ##Example
 
