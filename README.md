@@ -14,8 +14,8 @@
 ```javascript
 var myEl = autoSelector.parse( document.getElementById('my-el') );
 
-myEl.myLink.onclick = function(){};
-myEl.$myBtn.click(function(){});
+myEl.myLink.onclick = function(){}; // vanilla node
+myEl.$myBtn.click(function(){}); // add "$" to generate the jQuery wrapper
 
 ```
 
