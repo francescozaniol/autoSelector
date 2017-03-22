@@ -4,15 +4,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title></title>
 
-    <script src="jquery.js"></script>
+    <script src="assets/jquery.js"></script>
     <script src="../src/autoSelector.js"></script>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="assets/default.css">
+    <script src="assets/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
+    <style type="text/css">
+        html, body{height:100%}
+        body{
+            margin:0;padding:0;
+            background:#F8F8F8;
+        }
+        h2{
+             margin:1rem 0;
+        }
+        code[class]{
+            background:#EEE;
+            border:1px solid #CCC;
+            border-radius:2px;
+            padding:1rem;
+        }
+        .wrapper{
+            max-width: 800px;
+            background: #FFF;
+            border:1px solid #CCC;
+            padding:0 1rem 1rem 1rem;
+            margin:1rem auto;
+        }
+    </style>
 
 </head>
 <body>
+
+<div class="wrapper">
 
 <h2>Live Example:</h2>
 
@@ -22,8 +48,11 @@
     <button class="my-form__btn !js">Reset</button>
 </form>
 
-<script id="code-used">
+</div>
 
+<div class="wrapper">
+
+<script id="code-used">
 var myForm = autoSelector({
         'selector': '.\!js',
         'prefix': '{{scope-id}}__',
@@ -37,13 +66,11 @@ myForm.btn.onclick = function(e){
     e.preventDefault();
 };
 
-myForm.$field.keyup(function(){
+myForm.$field.keydown(function(){
     myForm.content.innerHTML = 'You wrote: "'+this.value+'"';
 });
 
 </script>
-
-<hr style="margin:2em 1em;">
 
 <script>
     var markupUsed = document.getElementById('my-form').outerHTML;
@@ -55,6 +82,8 @@ myForm.$field.keyup(function(){
     document.write('<pre><code>'+codeUsed+'</code></pre>');
 
 </script>
+
+</div>
 
 </body>
 </html>
