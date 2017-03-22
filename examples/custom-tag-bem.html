@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title></title>
 
-    <script src="assets/jquery.js"></script>
+    <script src="assets/cash.min.js"></script>
     <script src="../src/autoSelector.js"></script>
 
     <link rel="stylesheet" href="assets/default.css">
@@ -55,14 +55,16 @@
 autoSelector.setDefaultConf({
     'selector': '[class*="{{scope-tagName}}__"]',
     'prefix': '{{scope-tagName}}__',
-    'parsed-attribute': 'id/class'
+    'parsed-attribute': 'id/class',
+    'wrapper': window.cash
 });
+
 var myComponent = autoSelector.parse( 'my-component' );
 
-myComponent.$btn.click(function(){
+myComponent.$btn.on('click', function(){
     alert('Button clicked');
 });
-myComponent['$btn--1'].click(function(){
+myComponent['$btn--1'].on('click', function(){
     alert('Button #1');
 });
 myComponent['btn--2'].onclick = function(){
