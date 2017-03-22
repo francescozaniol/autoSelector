@@ -18,7 +18,7 @@
         'selector': '[js]',
         'prefix': '',
         'parsed-attribute': 'js',
-        'attach-jquery': true
+        'wrapper': window.jQuery
     };
 
     //
@@ -29,10 +29,9 @@
 
         if(!c) return;
 
-        for( i in defaultConf)
+        for( i in defaultConf){
             if(c[i]) defaultConf[i] = c[i];
-
-        defaultConf['attach-jquery'] = !!defaultConf['attach-jquery'] && !!window.jQuery;
+        }
 
     }
 
@@ -46,11 +45,10 @@
 
         tmpConf = {};
 
-        for( i in defaultConf)
+        for( i in defaultConf){
             if(c[i]) tmpConf[i] = c[i];
             else tmpConf[i] = defaultConf[i];
-
-        tmpConf['attach-jquery'] = !!tmpConf['attach-jquery'] && !!window.jQuery;
+        }
 
         return window.autoSelector;
 
@@ -186,20 +184,20 @@
 
         }
 
-        // --------- Attach jQuery (?) --------- //
+        // --------- Attach wrapper? --------- //
 
-        if( conf['attach-jquery'] ){
+        if( conf['wrapper'] ){
 
             for(i in collection){
 
-                // The jQuery wrapper will be created only at the first access to the object:
-                if(Object.defineProperty && Object.bind){ // IE>=9
+                // The wrapper will be created only at the first access to the object:
+                if(Object.defineProperty && Object.bind){
                     Object.defineProperty(collection, ('$'+i), {
-                        get: _getter.bind({ collection: collection, id: i }), // "_getter" is defined below
+                        get: _getter.bind({ collection: collection, id: i, wrapper: conf['wrapper'] }), // "_getter" is defined below
                         configurable: true // needed to redefine obj (see "_getter")
                     });
-                } else { // Sorry IE8, you'll get jQuery right away (no caching)
-                    collection['$'+i] = window.jQuery(collection[i]);
+                } else { // IE8 gets the wrapper right away (no caching)
+                    collection['$'+i] = conf['wrapper'](collection[i]);
                 }
 
             }
@@ -238,7 +236,7 @@
 
     function _getter(){
         Object.defineProperty(this.collection, ('$'+this.id), {
-            value: jQuery(this.collection[this.id])
+            value: this.wrapper(this.collection[this.id])
         });
         return this.collection['$'+this.id];
     }
