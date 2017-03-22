@@ -8,7 +8,7 @@
 
     var parsedAttr, selectedNodes, exsistingNode, conf, escaperRegex, tmpConf = null, _tmpConf;
 
-    var escaperRegexCustomTag = /{{scope-[a-z/]*[/]?customTagName[/]?[a-z/]*}}/;
+    var escaperRegexTagName = /{{scope-[a-z/]*[/]?tagName[/]?[a-z/]*}}/;
     var escaperRegexId = /{{scope-[a-z]*[/]?id[/]?[a-z/]*}}/;
     var escaperRegexClassName = /{{scope-[a-z]*[/]?class[/]?[a-z/]*}}/;
 
@@ -120,7 +120,7 @@
         for( i in conf ){
             if( typeof conf[i] == 'string' && conf[i].indexOf('{{') !== -1 ){
 
-                if( escaperRegex = escaperRegexCustomTag.exec(conf[i]) ){
+                if( escaperRegex = escaperRegexTagName.exec(conf[i]) ){
                     conf[i] = conf[i].replace( escaperRegex[0], scope.nodeName.toLowerCase() );
                     continue;
                 }
