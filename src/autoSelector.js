@@ -1,6 +1,6 @@
-// v 0.1.0
+// v 0.2.0
 
-(function( context ){
+(function(){
 
     // --------- Support vars --------- //
 
@@ -32,7 +32,7 @@
         for( i in defaultConf)
             if(c[i]) defaultConf[i] = c[i];
 
-        defaultConf['attach-jquery'] = !!defaultConf['attach-jquery'] && !!context.jQuery;
+        defaultConf['attach-jquery'] = !!defaultConf['attach-jquery'] && !!window.jQuery;
 
     }
 
@@ -42,7 +42,7 @@
      *
      */
 
-    context.autoSelector = function(c){
+    window.autoSelector = function(c){
 
         if(!c) return;
 
@@ -52,9 +52,9 @@
             if(c[i]) tmpConf[i] = c[i];
             else tmpConf[i] = defaultConf[i];
 
-        tmpConf['attach-jquery'] = !!tmpConf['attach-jquery'] && !!context.jQuery;
+        tmpConf['attach-jquery'] = !!tmpConf['attach-jquery'] && !!window.jQuery;
 
-        return context.autoSelector;
+        return window.autoSelector;
 
     };
 
@@ -202,7 +202,7 @@
                         configurable: true // needed to redefine obj (see "_getter")
                     });
                 } else { // Sorry IE8, you'll get jQuery right away (no caching)
-                    collection['$'+i] = context.jQuery(collection[i]);
+                    collection['$'+i] = window.jQuery(collection[i]);
                 }
 
             }
@@ -254,7 +254,7 @@
      *
      */
 
-    context.autoSelector.setDefaultConf = setDefaultConf;
-    context.autoSelector.parse = parse;
+    window.autoSelector.setDefaultConf = setDefaultConf;
+    window.autoSelector.parse = parse;
 
-}( window || this ));
+}());
