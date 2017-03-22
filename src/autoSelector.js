@@ -2,7 +2,9 @@
 
 (function(){
 
-    // --------- Support vars --------- //
+    //
+    // Global vars
+    //
 
     var i, j;
 
@@ -19,11 +21,9 @@
         'attach-jquery': true
     };
 
-    /**
-     *
-     * Set permanent configuration
-     *
-     */
+    //
+    // Set permanent configuration
+    //
 
     function setDefaultConf(c){
 
@@ -36,11 +36,9 @@
 
     }
 
-    /**
-     *
-     * Set a temporary conf: only for one parse
-     *
-     */
+    //
+    // Set a temporary conf: only for one parse
+    //
 
     window.autoSelector = function(c){
 
@@ -58,15 +56,14 @@
 
     };
 
-    /**
-     * Simple parse
-     * 
-     * @param comp : string or dom
-     * @param options : object
-     *     ignoreJQuery = do not auto-add jQuery element
-     *
-     * @return object
-     */
+    //
+    // Simple parse
+    // 
+    // @param comp : string or dom
+    // @param options : object
+    //
+    // @return object
+    //
 
     function parse( scope ){
 
@@ -217,11 +214,9 @@
 
     }
 
-    /**
-     *
-     * Helper functions
-     *
-     */
+    //
+    // Helper functions
+    //
 
     var _regexSingleSelector = /^[#\.]?[\\!\w-]+$/;
     function _find(s, rootNode){
@@ -248,11 +243,9 @@
         return this.collection['$'+this.id];
     }
 
-    /**
-     *
-     * Public
-     *
-     */
+    //
+    // Public
+    //
 
     window.autoSelector.setDefaultConf = setDefaultConf;
     window.autoSelector.parse = parse;
