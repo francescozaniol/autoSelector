@@ -1,8 +1,8 @@
-##About
+## About
 
 "autoSelector" is a small library (~1KB gzipped) that returns a collection of auto-selected dom nodes. It also auto-attaches the jQuery wrapper (optional and customizable).
 
-##Example
+## Example
 
 ```html
 <div id="my-el">
@@ -19,7 +19,7 @@ myEl.$myBtn.click(function(){}); // add "$" to generate the jQuery wrapper
 
 ```
 
-##Custom Configuration
+## Custom Configuration
 
 The default configuration looks for the "js" attribute in nodes. This behaviour can be changed in different ways:
 
@@ -53,7 +53,7 @@ Note: there are few **"Wildcard strings"** that can be used:
 - The above wildcard strings can be combined with "/"; for example: ```{{scope-id/class}}``` or ```{{scope-tagName/id}}```
 - The ```'parsed-attribute'``` option can accept any dom attribute (such as ```'id'``` or ```'class'``` or ```'data-anything'```). It can also accept ```'id/class'```, this will parse both the id and class of each selected node.
 
-##Live examples:
+## Live examples:
 
 [Simple form](https://rawgit.com/francescozaniol/autoSelector/master/examples/simple-form.html)
 
@@ -61,7 +61,7 @@ Note: there are few **"Wildcard strings"** that can be used:
 
 [Custom tag + BEM](https://rawgit.com/francescozaniol/autoSelector/master/examples/custom-tag-bem.html)
 
-##Further notes
+## Further notes
 
 - To improve performance, the wrapper (jQuery by default) is generated when it is used for the first time.
 
